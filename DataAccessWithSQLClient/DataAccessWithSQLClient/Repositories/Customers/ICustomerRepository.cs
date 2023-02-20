@@ -9,6 +9,8 @@ namespace DataAccessWithSQLClient.Repositories.Customers
 {
     internal interface ICustomerRepository : ICrudRepository<Customer, int>
     {
+        List<Customer> GetPage(int limit, int offset);
         List<Customer> GetByName(string name);
+
     }
 }

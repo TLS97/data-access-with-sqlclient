@@ -53,6 +53,50 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customers;
         }
 
+        public List<Customer> GetPage(int limit, int offset)
+        {
+            List<Customer> customers = new();
+            try
+            {
+                using (SqlConnection connection = new(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "SELECT * FROM Customer " +
+                        "ORDER BY CustomerId " +
+                        "OFFSET @offset ROWS " +
+                        "FETCH NEXT @limit ROWS ONLY";
+
+                    using (SqlCommand cmd = new(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@limit", limit);
+                        cmd.Parameters.AddWithValue("@offset", offset);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                customers.Add(new Customer()
+                                {
+                                    CustomerId = reader.GetInt32(0),
+                                    FirstName = reader.GetString(1),
+                                    LastName = reader.GetString(2),
+                                    Country = reader.IsDBNull(7) ? null : reader.GetString(7),
+                                    PostalCode = reader.IsDBNull(8) ? null : reader.GetString(8),
+                                    Phone = reader.IsDBNull(9) ? null : reader.GetString(9),
+                                    Email = reader.GetString(11)
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return customers;
+        }
+
         public Customer GetById(int id)
         {
             Customer customer = new();  
@@ -93,20 +137,6 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customer;
         }
 
-        public int Add(Customer obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Delete(Customer obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Update(Customer obj)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<Customer> GetByName(string firstName)
         {
@@ -147,5 +177,21 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customers;
             
         }
+
+        public int Add(Customer obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete(Customer obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(Customer obj)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

@@ -9,10 +9,10 @@ namespace DataAccessWithSQLClient.Repositories
 {
     internal class ConnectionStringHelper
     { 
-        public static string GetConnectionString()
+        public static string GetConnectionString(string datasource)
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();
-            connectionStringBuilder.DataSource = "N-NO-01-01-5943\\SQLEXPRESS";
+            connectionStringBuilder.DataSource = datasource; //"N-NO-01-01-5943\\SQLEXPRESS";
             connectionStringBuilder.InitialCatalog = "Chinook";
             connectionStringBuilder.IntegratedSecurity = true;
             connectionStringBuilder.TrustServerCertificate= true;
