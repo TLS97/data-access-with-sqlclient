@@ -13,7 +13,7 @@ namespace DataAccessWithSQLClient
             List<Customer>? customers = customerRepository.GetAll();
             //customerRepository.GetAll().ForEach(customer => Console.WriteLine(customer));
             //Console.WriteLine(customerRepository.GetById(100));
-            customerRepository.GetCustomerByName("Jo").ForEach(c => Console.WriteLine(c));
+            customerRepository.GetByName("Jo").ForEach(c => Console.WriteLine(c));
         }
     }
 }

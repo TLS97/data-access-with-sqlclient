@@ -108,7 +108,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             throw new NotImplementedException();
         }
 
-        public List<Customer> GetCustomerByName(string firstName)
+        public List<Customer> GetByName(string firstName)
         {
             List<Customer> customers = new List<Customer>();
 
