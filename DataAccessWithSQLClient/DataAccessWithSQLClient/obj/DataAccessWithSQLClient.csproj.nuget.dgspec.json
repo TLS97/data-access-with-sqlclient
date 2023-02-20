@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TLovis\\Desktop\\dotnet\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj": {}
+    "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TLovis\\Desktop\\dotnet\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj": {
+    "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TLovis\\Desktop\\dotnet\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
+        "projectUniqueName": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
         "projectName": "DataAccessWithSQLClient",
-        "projectPath": "C:\\Users\\TLovis\\Desktop\\dotnet\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
+        "projectPath": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
         "packagesPath": "C:\\Users\\TLovis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TLovis\\Desktop\\dotnet\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\obj\\",
+        "outputPath": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TLovis\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
