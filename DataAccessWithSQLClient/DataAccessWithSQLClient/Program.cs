@@ -50,6 +50,9 @@ namespace DataAccessWithSQLClient
             //int rowsAffectedByUpdate = customerRepository.Update(updatedCustomer);
             //Console.WriteLine(rowsAffectedByUpdate);
 
+            // TESTING NUMBER OF CUSTOMERS IN EACH COUNTRY
+            customerRepository.GetAllCustomerCountriesDescending().ForEach(
+                cc => Console.WriteLine(cc));
             // TESTING READING OF HIGHEST SPENDERS
             //customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
         }
