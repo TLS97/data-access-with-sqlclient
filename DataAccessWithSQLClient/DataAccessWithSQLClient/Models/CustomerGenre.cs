@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace DataAccessWithSQLClient.Models
 {
-    internal readonly record struct CustomerGenre(string genre);
+    internal readonly record struct CustomerGenre(string Genre);
     
 }
