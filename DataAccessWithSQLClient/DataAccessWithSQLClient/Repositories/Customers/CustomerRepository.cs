@@ -224,9 +224,43 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates a customer in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The number of rows affected</returns>
         public int Update(Customer obj)
         {
-            throw new NotImplementedException();
+            int rows = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+
+                    string sql = "UPDATE Customer SET FirstName = @firstName, LastName = @lastName, " +
+                        "Country = @country, PostalCode = @postalCode, Phone = @phone, Email = @email WHERE CustomerId = @customerId";
+
+
+                    using SqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", obj.LastName);
+                    cmd.Parameters.AddWithValue("@country", obj.Country);
+                    cmd.Parameters.AddWithValue("@postalCode", obj.PostalCode);
+                    cmd.Parameters.AddWithValue("@phone", obj.Phone);
+                    cmd.Parameters.AddWithValue("@email", obj.Email);
+                    cmd.Parameters.AddWithValue("@customerId", obj.CustomerId);
+
+                    rows = cmd.ExecuteNonQuery();
+                };
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return rows;
         }
 
     }
