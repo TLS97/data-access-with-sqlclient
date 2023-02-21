@@ -20,6 +20,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         {
             _connectionString = connectionString;
         }
+
+        /// <summary>
+        /// Get all customers in the database.
+        /// </summary>
+        /// <returns>A list of customers</returns>
         public List<Customer> GetAll()
         {
             List<Customer> customers = new List<Customer>();
@@ -100,6 +105,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customers;
         }
 
+        /// <summary>
+        /// Get a customer from the database by its ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A customer</returns>
         public Customer GetById(int id)
         {
             Customer customer = new();  
@@ -140,6 +150,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customer;
         }
 
+        /// <summary>
+        /// Gets a customer from the database by its name.
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <returns>A customer</returns>
         public List<Customer> GetByName(string firstName)
         {
             List<Customer> customers = new List<Customer>();
@@ -180,6 +195,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             
         }
 
+        /// <summary>
+        /// Adds a new customer to the database.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The number of rows affected</returns>
         public int Add(Customer obj)
         {
             int rows = 0;
@@ -188,19 +208,23 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
+
                     string sql = "INSERT INTO Customer(FirstName, LastName, Country, PostalCode, Phone, Email) " +
                         "VALUES (@firstName, @lastName, @country, @postalCode, @phone, @email)";
-                    using (SqlCommand cmd = new SqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@customerId", obj.CustomerId);
-                        cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
-                        cmd.Parameters.AddWithValue("@lastName", obj.LastName);
-                        cmd.Parameters.AddWithValue("@country", obj.Country);
-                        cmd.Parameters.AddWithValue("@postalCode", obj.PostalCode);
-                        cmd.Parameters.AddWithValue("@phone", obj.Phone);
-                        cmd.Parameters.AddWithValue("email", obj.Email);
-                        rows = cmd.ExecuteNonQuery();
-                    }
+
+                    using SqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.AddWithValue("@customerId", obj.CustomerId);
+                    cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", obj.LastName);
+                    cmd.Parameters.AddWithValue("@country", obj.Country);
+                    cmd.Parameters.AddWithValue("@postalCode", obj.PostalCode);
+                    cmd.Parameters.AddWithValue("@phone", obj.Phone);
+                    cmd.Parameters.AddWithValue("email", obj.Email);
+                    
+                    rows = cmd.ExecuteNonQuery();
+                    
 
                 };
             } catch (SqlException ex)
@@ -215,6 +239,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates a customer in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The number of rows affected</returns>
         public int Update(Customer obj)
         {
             int rows = 0;
@@ -249,6 +278,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return rows;
         }
 
+        /// <summary>
+        /// Gets the highest spending customers ordered descending.
+        /// </summary>
+        /// <returns>List of customers. Includes customer's name and total amount spent.</returns>
         public List<CustomerSpender> GetHighestSpenders()
         {
             List<CustomerSpender> customers = new();

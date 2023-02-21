@@ -51,7 +51,7 @@ namespace DataAccessWithSQLClient
             //Console.WriteLine(rowsAffectedByUpdate);
 
             // TESTING READING OF HIGHEST SPENDERS
-            customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
+            //customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
         }
     }
 }
