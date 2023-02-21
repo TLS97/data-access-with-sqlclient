@@ -49,6 +49,9 @@ namespace DataAccessWithSQLClient
 
             //int rowsAffectedByUpdate = customerRepository.Update(updatedCustomer);
             //Console.WriteLine(rowsAffectedByUpdate);
+
+            // TESTING READING OF HIGHEST SPENDERS
+            customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
         }
     }
 }

@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataAccessWithSQLClient.Repositories.Customers
@@ -138,7 +140,6 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customer;
         }
 
-
         public List<Customer> GetByName(string firstName)
         {
             List<Customer> customers = new List<Customer>();
@@ -245,5 +246,41 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return rows;
         }
 
+        public List<CustomerSpender> GetHighestSpenders()
+        {
+            List<CustomerSpender> customers = new();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                { 
+                    connection.Open();
+                
+                    string sql = "SELECT CONCAT(Customer.FirstName, ' ', Customer.LastName) AS CustomerName, SUM(Invoice.Total) AS Total " +
+                                 "FROM Invoice INNER JOIN Customer ON Invoice.CustomerId = Customer.CustomerId " +
+                                 "GROUP BY Invoice.CustomerId, Customer.FirstName, Customer.LastName " +
+                                 "ORDER BY Total DESC";
+
+                    using SqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = sql;
+
+                    using SqlDataReader reader = cmd.ExecuteReader();
+                        
+                    while (reader.Read())
+                    {
+                        customers.Add(
+                            new CustomerSpender()
+                            {
+                                CustomerName = reader.GetString(0),
+                                Total = (double)reader.GetDecimal(1)
+                            });
+                    }
+                }
+            } catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return customers;
+        }
     }
 }
