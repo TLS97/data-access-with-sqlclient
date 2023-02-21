@@ -12,5 +12,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         List<Customer> GetPage(int limit, int offset);
         List<Customer> GetByName(string name);
 
+        List<CustomerSpender> GetHighestSpenders();
+
     }
 }
