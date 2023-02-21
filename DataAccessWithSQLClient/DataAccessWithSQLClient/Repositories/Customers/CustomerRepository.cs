@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -180,7 +181,34 @@ namespace DataAccessWithSQLClient.Repositories.Customers
 
         public int Add(Customer obj)
         {
-            throw new NotImplementedException();
+            // Add a new customer to the database.
+            // You also need to add only the fields listed above (our customer object)
+            int rows = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "INSERT INTO Customer(FirstName, LastName, Country, PostalCode, Phone, Email) " +
+                        "VALUES (@firstName, @lastName, @country, @postalCode, @phone, @email)";
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@customerId", obj.CustomerId);
+                        cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
+                        cmd.Parameters.AddWithValue("@lastName", obj.LastName);
+                        cmd.Parameters.AddWithValue("@country", obj.Country);
+                        cmd.Parameters.AddWithValue("@postalCode", obj.PostalCode);
+                        cmd.Parameters.AddWithValue("@phone", obj.Phone);
+                        cmd.Parameters.AddWithValue("email", obj.Email);
+                        rows = cmd.ExecuteNonQuery();
+                    }
+
+                };
+            } catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return rows;
         }
 
         public int Delete(Customer obj)
