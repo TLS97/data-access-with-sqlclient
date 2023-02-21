@@ -21,19 +21,19 @@ namespace DataAccessWithSQLClient
             
             //customerRepository.GetPage(3, 2).ForEach(c => Console.WriteLine(c));
             
-            Customer newCustomer = new()
-            {
-                FirstName = "Test",
-                LastName = "Test",
-                Country = "Norge",
-                PostalCode = "Test",
-                Phone = "Test",
-                Email = "Test",
-            };
+            //Customer newCustomer = new()
+            //{
+            //    FirstName = "Test",
+            //    LastName = "Test",
+            //    Country = "Norge",
+            //    PostalCode = "Test",
+            //    Phone = "Test",
+            //    Email = "Test",
+            //};
 
-            int rowsAffected = customerRepository.Add(newCustomer);
+            //int rowsAffected = customerRepository.Add(newCustomer);
 
-            Console.WriteLine(rowsAffected);
+            //Console.WriteLine(rowsAffected);
         }
     }
 }

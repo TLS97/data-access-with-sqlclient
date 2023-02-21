@@ -179,32 +179,40 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             
         }
 
+        /// <summary>
+        /// Adds a new customer to the database.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The number of rows affected</returns>
         public int Add(Customer obj)
         {
-            // Add a new customer to the database.
-            // You also need to add only the fields listed above (our customer object)
             int rows = 0;
             try
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
+
                     string sql = "INSERT INTO Customer(FirstName, LastName, Country, PostalCode, Phone, Email) " +
                         "VALUES (@firstName, @lastName, @country, @postalCode, @phone, @email)";
-                    using (SqlCommand cmd = new SqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@customerId", obj.CustomerId);
-                        cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
-                        cmd.Parameters.AddWithValue("@lastName", obj.LastName);
-                        cmd.Parameters.AddWithValue("@country", obj.Country);
-                        cmd.Parameters.AddWithValue("@postalCode", obj.PostalCode);
-                        cmd.Parameters.AddWithValue("@phone", obj.Phone);
-                        cmd.Parameters.AddWithValue("email", obj.Email);
-                        rows = cmd.ExecuteNonQuery();
-                    }
+
+                    using SqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.AddWithValue("@customerId", obj.CustomerId);
+                    cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", obj.LastName);
+                    cmd.Parameters.AddWithValue("@country", obj.Country);
+                    cmd.Parameters.AddWithValue("@postalCode", obj.PostalCode);
+                    cmd.Parameters.AddWithValue("@phone", obj.Phone);
+                    cmd.Parameters.AddWithValue("email", obj.Email);
+
+                    rows = cmd.ExecuteNonQuery();
+
 
                 };
-            } catch (SqlException ex)
+            }
+            catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }

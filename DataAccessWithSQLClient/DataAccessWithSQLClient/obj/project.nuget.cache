@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+0F5g/LZQ1rgDN34rsWpvNsKoqzHb+np9kHpgffPAlmNYcxT03vvYvW0yOFfbYDYavwYavrVWncrwIW+Mv3iTQ==",
+  "dgSpecHash": "CjUj+QiAo06ChFlaZIDS9Pdsf7CNG6FIl5vgLAi+HrljlBoXkJhpxkyQwwm97R/5Z/T9cNCQZScyjOXM8RSwPQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
+  "projectFilePath": "C:\\Users\\TLovis\\Desktop\\dataaccess\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TLovis\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\TLovis\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
