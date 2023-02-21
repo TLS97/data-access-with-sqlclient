@@ -14,13 +14,14 @@ namespace DataAccessWithSQLClient
 
             //List<Customer>? customers = customerRepository.GetAll();
             //customerRepository.GetAll().ForEach(customer => Console.WriteLine(customer));
-            
+
             //Console.WriteLine(customerRepository.GetById(100));
-            
+
             //customerRepository.GetByName("Jo").ForEach(c => Console.WriteLine(c));
-            
+
             //customerRepository.GetPage(3, 2).ForEach(c => Console.WriteLine(c));
-            
+
+            // TESTING ADD
             //Customer newCustomer = new()
             //{
             //    FirstName = "Test",
@@ -32,8 +33,25 @@ namespace DataAccessWithSQLClient
             //};
 
             //int rowsAffected = customerRepository.Add(newCustomer);
-
             //Console.WriteLine(rowsAffected);
+
+            // TESTING UPDATE
+            //Customer updatedCustomer = new()
+            //{
+            //    CustomerId = 59,
+            //    FirstName = "Updated",
+            //    LastName = "Updated",
+            //    Country = "Norge",
+            //    PostalCode = "Updated",
+            //    Phone = "Updated",
+            //    Email = "Updated",
+            //};
+
+            //int rowsAffectedByUpdate = customerRepository.Update(updatedCustomer);
+            //Console.WriteLine(rowsAffectedByUpdate);
+
+            // TESTING READING OF HIGHEST SPENDERS
+            //customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
         }
     }
 }
