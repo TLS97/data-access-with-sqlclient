@@ -2003,19 +2003,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TLovis\\.nuget\\packages\\": {}
+    "C:\\Users\\VPaste\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
+      "projectUniqueName": "C:\\Users\\VPaste\\Documents\\Noroff\\Assignments\\Backend\\A2\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
       "projectName": "DataAccessWithSQLClient",
-      "projectPath": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
-      "packagesPath": "C:\\Users\\TLovis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TLovis\\Desktop\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\obj\\",
+      "projectPath": "C:\\Users\\VPaste\\Documents\\Noroff\\Assignments\\Backend\\A2\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\DataAccessWithSQLClient.csproj",
+      "packagesPath": "C:\\Users\\VPaste\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\VPaste\\Documents\\Noroff\\Assignments\\Backend\\A2\\data-access-with-sqlclient\\DataAccessWithSQLClient\\DataAccessWithSQLClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\TLovis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VPaste\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

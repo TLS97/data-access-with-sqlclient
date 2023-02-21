@@ -10,30 +10,33 @@ namespace DataAccessWithSQLClient
         {
             ICustomerRepository customerRepository = 
                 new CustomerRepository(ConnectionStringHelper.GetConnectionString(
-                    "N-NO-01-01-5943\\SQLEXPRESS"));
+                    "DESKTOP-4O45OJN\\SQLEXPRESS"));
 
             //List<Customer>? customers = customerRepository.GetAll();
             //customerRepository.GetAll().ForEach(customer => Console.WriteLine(customer));
-            
+
             //Console.WriteLine(customerRepository.GetById(100));
-            
+
             //customerRepository.GetByName("Jo").ForEach(c => Console.WriteLine(c));
-            
+
             //customerRepository.GetPage(3, 2).ForEach(c => Console.WriteLine(c));
-            
-            Customer newCustomer = new()
-            {
-                FirstName = "Test",
-                LastName = "Test",
-                Country = "Norge",
-                PostalCode = "Test",
-                Phone = "Test",
-                Email = "Test",
-            };
 
-            int rowsAffected = customerRepository.Add(newCustomer);
+            //Customer newCustomer = new()
+            //{
+            //    FirstName = "Test",
+            //    LastName = "Test",
+            //    Country = "Norge",
+            //    PostalCode = "Test",
+            //    Phone = "Test",
+            //    Email = "Test",
+            //};
 
-            Console.WriteLine(rowsAffected);
+            //int rowsAffected = customerRepository.Add(newCustomer);
+
+            //Console.WriteLine(rowsAffected);
+
+            customerRepository.GetAllCustomerCountriesDescending().ForEach(
+                cc => Console.WriteLine(cc));
         }
     }
 }

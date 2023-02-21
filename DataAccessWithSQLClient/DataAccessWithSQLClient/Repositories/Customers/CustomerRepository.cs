@@ -138,7 +138,6 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customer;
         }
 
-
         public List<Customer> GetByName(string firstName)
         {
             List<Customer> customers = new List<Customer>();
@@ -179,6 +178,42 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             
         }
 
+        public List<CustomerCountry> GetAllCustomerCountriesDescending()
+        {
+            List<CustomerCountry> resultList = new();
+
+            try
+            {
+                using (SqlConnection connection = new(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "SELECT Country, COUNT(CustomerId) FROM Customer " +
+                        "GROUP BY Country " +
+                        "ORDER BY COUNT(CustomerId) DESC";
+                    using (SqlCommand cmd = new(sql, connection))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                resultList.Add(new CustomerCountry()
+                                {
+                                    Country = reader.GetString(0),
+                                    Number = reader.GetInt32(1)
+                                });
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return resultList;
+        }
         public int Add(Customer obj)
         {
             // Add a new customer to the database.
