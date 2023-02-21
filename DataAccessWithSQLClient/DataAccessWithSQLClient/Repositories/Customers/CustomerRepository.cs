@@ -18,6 +18,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         {
             _connectionString = connectionString;
         }
+
+        /// <summary>
+        /// Get all customers in the database.
+        /// </summary>
+        /// <returns>A list of customers</returns>
         public List<Customer> GetAll()
         {
             List<Customer> customers = new List<Customer>();
@@ -98,6 +103,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customers;
         }
 
+        /// <summary>
+        /// Get a customer from the database by its ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A customer</returns>
         public Customer GetById(int id)
         {
             Customer customer = new();  
@@ -138,7 +148,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customer;
         }
 
-
+        /// <summary>
+        /// Gets a customer from the database by its name.
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <returns>A customer</returns>
         public List<Customer> GetByName(string firstName)
         {
             List<Customer> customers = new List<Customer>();
