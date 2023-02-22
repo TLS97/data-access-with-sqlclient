@@ -61,6 +61,12 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return customers;
         }
 
+        /// <summary>
+        /// Get a specific selection of customers from the database for pagination.
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        /// <returns>List of customers</returns>
         public List<Customer> GetPage(int limit, int offset)
         {
             List<Customer> customers = new();
@@ -203,6 +209,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             
         }
 
+        /// <summary>
+        /// Get the number of customers per country from the database.
+        /// </summary>
+        /// <returns>List of CustomerCountry. CustomerCountry includes customer's country and the number of customers in the country. </returns>
         public List<CustomerCountry> GetAllCustomerCountriesDescending()
         {
             List<CustomerCountry> resultList = new();
@@ -240,6 +250,11 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return resultList;
         }
 
+        /// <summary>
+        /// Get a list of most popular genres for a specific customer (by ID).
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns>List of the most popular genre of a specific customer. In the case of a tie, both genres will be returned.</returns>
         public List<CustomerGenre> GetMostPopularGenreFor(int customerId)
         {
             List<CustomerGenre> resultList = new();

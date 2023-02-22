@@ -12,10 +12,11 @@ namespace DataAccessWithSQLClient
                 new CustomerRepository(ConnectionStringHelper.GetConnectionString(
                     "N-NO-01-01-5943\\SQLEXPRESS"));
 
-            //List<Customer>? customers = customerRepository.GetAll();
+            // TESTING READING ALL CUSTOMERS IN THE DATABASE
             //customerRepository.GetAll().ForEach(customer => Console.WriteLine(customer));
 
-            //Console.WriteLine(customerRepository.GetById(100));
+            // TESTING READING BY ID
+            Console.WriteLine(customerRepository.GetById(1));
 
             //customerRepository.GetByName("Jo").ForEach(c => Console.WriteLine(c));
 
