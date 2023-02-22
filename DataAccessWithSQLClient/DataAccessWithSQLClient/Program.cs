@@ -51,10 +51,14 @@ namespace DataAccessWithSQLClient
             //Console.WriteLine(rowsAffectedByUpdate);
 
             // TESTING NUMBER OF CUSTOMERS IN EACH COUNTRY
-            customerRepository.GetAllCustomerCountriesDescending().ForEach(
-                cc => Console.WriteLine(cc));
+            //customerRepository.GetAllCustomerCountriesDescending().ForEach(
+            //    cc => Console.WriteLine(cc));
             // TESTING READING OF HIGHEST SPENDERS
             //customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
+            
+            // TESTING GETTING THE MOST POPULAR GENRE FOR CUSTOMER
+            //customerRepository.GetMostPopularGenreFor(2).ForEach(
+            //    customerGenre => Console.WriteLine(customerGenre));
         }
     }
 }
