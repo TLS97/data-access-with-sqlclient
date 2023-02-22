@@ -166,7 +166,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// </summary>
         /// <param name="firstName"></param>
         /// <returns>A customer</returns>
-        public List<Customer> GetByName(string firstName)
+        public List<Customer> GetByName(string name)
         {
             List<Customer> customers = new List<Customer>();
 
@@ -178,10 +178,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                     string sql = "SELECT " + 
                         "CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email " +
                         "FROM Customer " + 
-                        "WHERE FirstName LIKE @firstName + '%'";
+                        "WHERE CONCAT(FirstName, ' ', LastName) LIKE '%' + @name + '%'";
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@firstName", firstName);
+                        cmd.Parameters.AddWithValue("@name", name);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
