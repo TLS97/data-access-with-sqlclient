@@ -10,19 +10,21 @@ namespace DataAccessWithSQLClient
         {
             ICustomerRepository customerRepository = 
                 new CustomerRepository(ConnectionStringHelper.GetConnectionString(
-                    "N-NO-01-01-5943\\SQLEXPRESS"));
+                    "INSERT SERVER NAME HERE"));
 
             // TESTING READING ALL CUSTOMERS IN THE DATABASE
             //customerRepository.GetAll().ForEach(customer => Console.WriteLine(customer));
 
             // TESTING READING BY ID
-            Console.WriteLine(customerRepository.GetById(1));
+            //Console.WriteLine(customerRepository.GetById(1));
 
+            // TESTING READING BY NAME
             //customerRepository.GetByName("Jo").ForEach(c => Console.WriteLine(c));
 
+            // TESTING READING A PAGE OF CUSTOMERS
             //customerRepository.GetPage(3, 2).ForEach(c => Console.WriteLine(c));
 
-            // TESTING ADD
+            // TESTING ADD CUSTOMER
             //Customer newCustomer = new()
             //{
             //    FirstName = "Test",
@@ -34,9 +36,9 @@ namespace DataAccessWithSQLClient
             //};
 
             //int rowsAffected = customerRepository.Add(newCustomer);
-            //Console.WriteLine(rowsAffected);
+            //Console.WriteLine($"{rowsAffected} row(s) was added to Customer table");
 
-            // TESTING UPDATE
+            // TESTING UPDATE CUSTOMER
             //Customer updatedCustomer = new()
             //{
             //    CustomerId = 59,
@@ -49,14 +51,15 @@ namespace DataAccessWithSQLClient
             //};
 
             //int rowsAffectedByUpdate = customerRepository.Update(updatedCustomer);
-            //Console.WriteLine(rowsAffectedByUpdate);
+            //Console.WriteLine($"{rowsAffectedByUpdate} row(s) was updated in the Customer table");
 
             // TESTING NUMBER OF CUSTOMERS IN EACH COUNTRY
             //customerRepository.GetAllCustomerCountriesDescending().ForEach(
             //    cc => Console.WriteLine(cc));
+
             // TESTING READING OF HIGHEST SPENDERS
             //customerRepository.GetHighestSpenders().ForEach(c => Console.WriteLine(c));
-            
+
             // TESTING GETTING THE MOST POPULAR GENRE FOR CUSTOMER
             //customerRepository.GetMostPopularGenreFor(2).ForEach(
             //    customerGenre => Console.WriteLine(customerGenre));

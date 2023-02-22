@@ -13,6 +13,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         List<Customer> GetByName(string name);
         List<CustomerCountry> GetAllCustomerCountriesDescending();
         List<CustomerGenre> GetMostPopularGenreFor(int customerId);
+        List<CustomerSpender> GetHighestSpenders();
 
     }
 }

@@ -45,10 +45,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                                     CustomerId = reader.GetInt32(0),
                                     FirstName = reader.GetString(1),
                                     LastName = reader.GetString(2),
-                                    Country = reader.IsDBNull(7) ? null : reader.GetString(7),
-                                    PostalCode = reader.IsDBNull(8) ? null : reader.GetString(8),
-                                    Phone = reader.IsDBNull(9) ? null : reader.GetString(9),
-                                    Email = reader.GetString(11)
+                                    Country = reader.IsDBNull(3) ? null : reader.GetString(3),
+                                    PostalCode = reader.IsDBNull(4) ? null : reader.GetString(4),
+                                    Phone = reader.IsDBNull(5) ? null : reader.GetString(5),
+                                    Email = reader.GetString(6)
                                 });
                             }
                         }
@@ -96,10 +96,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                                     CustomerId = reader.GetInt32(0),
                                     FirstName = reader.GetString(1),
                                     LastName = reader.GetString(2),
-                                    Country = reader.IsDBNull(7) ? null : reader.GetString(7),
-                                    PostalCode = reader.IsDBNull(8) ? null : reader.GetString(8),
-                                    Phone = reader.IsDBNull(9) ? null : reader.GetString(9),
-                                    Email = reader.GetString(11)
+                                    Country = reader.IsDBNull(3) ? null : reader.GetString(3),
+                                    PostalCode = reader.IsDBNull(4) ? null : reader.GetString(4),
+                                    Phone = reader.IsDBNull(5) ? null : reader.GetString(5),
+                                    Email = reader.GetString(6)
                                 });
                             }
                         }
@@ -144,10 +144,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                                     CustomerId = reader.GetInt32(0),
                                     FirstName = reader.GetString(1),
                                     LastName = reader.GetString(2),
-                                    Country = reader.IsDBNull(7) ? null : reader.GetString(7),
-                                    PostalCode = reader.IsDBNull(8) ? null : reader.GetString(8),
-                                    Phone = reader.IsDBNull(9) ? null : reader.GetString(9),
-                                    Email = reader.GetString(11)
+                                    Country = reader.IsDBNull(3) ? null : reader.GetString(3),
+                                    PostalCode = reader.IsDBNull(4) ? null : reader.GetString(4),
+                                    Phone = reader.IsDBNull(5) ? null : reader.GetString(5),
+                                    Email = reader.GetString(6)
                                 };
                             }
                         }
@@ -191,10 +191,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                                     CustomerId = reader.GetInt32(0),
                                     FirstName = reader.GetString(1),
                                     LastName = reader.GetString(2),
-                                    Country = reader.IsDBNull(7) ? null : reader.GetString(7),
-                                    PostalCode = reader.IsDBNull(8) ? null : reader.GetString(8),
-                                    Phone = reader.IsDBNull(9) ? null : reader.GetString(9),
-                                    Email = reader.GetString(11)
+                                    Country = reader.IsDBNull(3) ? null : reader.GetString(3),
+                                    PostalCode = reader.IsDBNull(4) ? null : reader.GetString(4),
+                                    Phone = reader.IsDBNull(5) ? null : reader.GetString(5),
+                                    Email = reader.GetString(6)
                                 });
                             }
                         }
