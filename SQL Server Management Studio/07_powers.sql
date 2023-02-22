@@ -1,3 +1,5 @@
+USE SuperheroesDb;
+
 INSERT INTO [Power]
 VALUES ('Intelligence','How smart the hero is'),
 ('Dexterity', 'How fast?? the hero is'),
