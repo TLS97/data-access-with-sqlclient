@@ -1,7 +1,7 @@
 # Data Access with SQLClient
 
-This project has two parts. The DataAccessWithSQLClient folder contains a C# Console Application for accessing data in Microsoft SQL Server by using SQLClient and the repository pattern. 
-A database named 'Chinook' which models the iTunes database of customers purchasing tracks is used.
+This project has two parts. The DataAccessWithSQLClient folder contains a C# Console Application for accessing data from a the 'Chinook' database in Microsoft SQL Server by using SQLClient and the repository pattern. 
+'Chinook' models the iTunes database of customers purchasing tracks.
 
 The second part is a folder of SQL scripts that creates a database of Superheroes, Assistants and Powers. The data tables are altered, updated, deleted and data is inserted into them.
 
