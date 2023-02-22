@@ -31,7 +31,9 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM Customer";
+                    string sql = "SELECT " + 
+                        "CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email " + 
+                        "FROM Customer";
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -67,7 +69,9 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                 using (SqlConnection connection = new(_connectionString))
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM Customer " +
+                    string sql = "SELECT " + 
+                        "CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email " +
+                        "FROM Customer " +
                         "ORDER BY CustomerId " +
                         "OFFSET @offset ROWS " +
                         "FETCH NEXT @limit ROWS ONLY";
@@ -117,7 +121,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                 using (SqlConnection connection = new(_connectionString)) 
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM Customer WHERE CustomerId = @id";
+                    string sql = "SELECT " + 
+                        "CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email " +
+                        "FROM Customer " +
+                        "WHERE CustomerId = @id";
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
@@ -162,7 +169,10 @@ namespace DataAccessWithSQLClient.Repositories.Customers
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    string sql = "SELECT * FROM Customer WHERE FirstName LIKE @firstName + '%'";
+                    string sql = "SELECT " + 
+                        "CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email " +
+                        "FROM Customer " + 
+                        "WHERE FirstName LIKE @firstName + '%'";
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@firstName", firstName);
