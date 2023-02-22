@@ -230,6 +230,49 @@ namespace DataAccessWithSQLClient.Repositories.Customers
             return resultList;
         }
 
+        public List<CustomerGenre> GetMostPopularGenreFor(int customerId)
+        {
+            List<CustomerGenre> resultList = new();
+
+            try
+            {
+                using (SqlConnection connection = new(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "SELECT TOP 1 WITH TIES Genre.Name " +
+                        "FROM Genre " +
+                        "INNER JOIN Track ON Genre.GenreId = Track.GenreId " +
+                        "INNER JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId " +
+                        "INNER JOIN Invoice ON InvoiceLine.InvoiceId = Invoice.InvoiceId " +
+                        "WHERE CustomerId = @customerId " +
+                        "GROUP BY Genre.GenreId, Genre.Name " +
+                        "ORDER BY COUNT(*) DESC";
+
+                    using (SqlCommand cmd = new(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@customerId", customerId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                resultList.Add(new CustomerGenre()
+                                {
+                                    Genre = reader.GetString(0),
+                                });
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return resultList;
+        }
+
         /// <summary>
         /// Adds a new customer to the database.
         /// </summary>
