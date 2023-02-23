@@ -64,8 +64,8 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// <summary>
         /// Get a specific selection of customers from the database for pagination.
         /// </summary>
-        /// <param name="limit"></param>
-        /// <param name="offset"></param>
+        /// <param name="limit">Limit: Number of records returned</param>
+        /// <param name="offset">Offset: Numbers of records to skip</param>
         /// <returns>List of customers</returns>
         public List<Customer> GetPage(int limit, int offset)
         {
@@ -116,7 +116,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// <summary>
         /// Get a customer from the database by its ID.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">A customer's ID</param>
         /// <returns>A customer</returns>
         public Customer GetById(int id)
         {
@@ -164,7 +164,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// <summary>
         /// Gets a customer from the database by its name.
         /// </summary>
-        /// <param name="firstName"></param>
+        /// <param name="firstName">A customer's name</param>
         /// <returns>A customer</returns>
         public List<Customer> GetByName(string name)
         {
@@ -253,7 +253,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// <summary>
         /// Get a list of most popular genres for a specific customer (by ID).
         /// </summary>
-        /// <param name="customerId"></param>
+        /// <param name="customerId">A customer's ID</param>
         /// <returns>List of the most popular genre of a specific customer. In the case of a tie, both genres will be returned.</returns>
         public List<CustomerGenre> GetMostPopularGenreFor(int customerId)
         {
@@ -301,7 +301,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// <summary>
         /// Adds a new customer to the database.
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">A Customer object</param>
         /// <returns>The number of rows affected</returns>
         public int Add(Customer obj)
         {
@@ -346,7 +346,7 @@ namespace DataAccessWithSQLClient.Repositories.Customers
         /// <summary>
         /// Updates a customer in the database
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">A Customer object</param>
         /// <returns>The number of rows affected</returns>
         public int Update(Customer obj)
         {
